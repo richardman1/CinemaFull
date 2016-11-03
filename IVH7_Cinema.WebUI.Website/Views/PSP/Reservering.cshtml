@@ -1,0 +1,21 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.ReserveringListViewModel
+
+@{
+    ViewBag.Title = "Reservering";
+}
+
+<h2>Reservering</h2>
+
+<p class="text-center">
+    Uw reserveringscode is: 
+</p>
+
+<p class ="text-center">
+    <b>
+        @Model.order.OrderID
+    </b>
+</p>
+
+<p class="text-center">
+    Met deze code kan u bij alle automaten binnen de CinemA bioscopen uw tickets ophalen.
+</p>

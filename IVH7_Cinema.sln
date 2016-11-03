@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVH7_Cinema.WebUI", "IVH7_Cinema.WebUI\IVH7_Cinema.WebUI.csproj", "{8BDA2DEF-AA0E-44F9-8DFE-A6F1B13643FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVH7_Cinema.Domain", "IVH7_Cinema.Domain\IVH7_Cinema.Domain.csproj", "{A5E16C0F-7402-4F98-9552-E376432ACA3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVH7_Cinema.UnitTests", "IVH7_Cinema.UnitTests\IVH7_Cinema.UnitTests.csproj", "{F0FEE2F1-D7DA-42E3-8A8D-E92F00F515C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{19E2B682-67B0-40BA-9C2B-16D00E3D1ACD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.A1.cslib", "com.A1.cslib\com.A1.cslib.csproj", "{D5E1192E-D1C1-4650-91BE-8521D9BBFBA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVH7_Cinema.WebUI.Website", "IVH7_Cinema.WebUI.Website\IVH7_Cinema.WebUI.Website.csproj", "{DA06B32C-8A35-4A47-8CB9-50B43103C244}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IVH7_Cinema.Resources", "IVH7_Cinema.Resources\IVH7_Cinema.Resources.csproj", "{6012CB82-50B5-4E3F-89BF-8537EC6EFE4C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://xandergerreman.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = IVH7_Cinema.WebUI\\IVH7_Cinema.WebUI.csproj
+		SccProjectName1 = IVH7_Cinema.WebUI
+		SccLocalPath1 = IVH7_Cinema.WebUI
+		SccProjectUniqueName2 = IVH7_Cinema.Domain\\IVH7_Cinema.Domain.csproj
+		SccProjectName2 = IVH7_Cinema.Domain
+		SccLocalPath2 = IVH7_Cinema.Domain
+		SccProjectUniqueName3 = IVH7_Cinema.UnitTests\\IVH7_Cinema.UnitTests.csproj
+		SccProjectName3 = IVH7_Cinema.UnitTests
+		SccLocalPath3 = IVH7_Cinema.UnitTests
+		SccProjectUniqueName4 = com.A1.cslib\\com.A1.cslib.csproj
+		SccProjectName4 = com.A1.cslib
+		SccLocalPath4 = com.A1.cslib
+		SccProjectUniqueName5 = IVH7_Cinema.WebUI.Website\\IVH7_Cinema.WebUI.Website.csproj
+		SccProjectName5 = IVH7_Cinema.WebUI.Website
+		SccLocalPath5 = IVH7_Cinema.WebUI.Website
+		SccProjectUniqueName6 = IVH7_Cinema.Resources\\IVH7_Cinema.Resources.csproj
+		SccProjectName6 = IVH7_Cinema.Resources
+		SccLocalPath6 = IVH7_Cinema.Resources
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BDA2DEF-AA0E-44F9-8DFE-A6F1B13643FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDA2DEF-AA0E-44F9-8DFE-A6F1B13643FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDA2DEF-AA0E-44F9-8DFE-A6F1B13643FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDA2DEF-AA0E-44F9-8DFE-A6F1B13643FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E16C0F-7402-4F98-9552-E376432ACA3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E16C0F-7402-4F98-9552-E376432ACA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E16C0F-7402-4F98-9552-E376432ACA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E16C0F-7402-4F98-9552-E376432ACA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0FEE2F1-D7DA-42E3-8A8D-E92F00F515C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0FEE2F1-D7DA-42E3-8A8D-E92F00F515C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0FEE2F1-D7DA-42E3-8A8D-E92F00F515C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0FEE2F1-D7DA-42E3-8A8D-E92F00F515C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E1192E-D1C1-4650-91BE-8521D9BBFBA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E1192E-D1C1-4650-91BE-8521D9BBFBA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E1192E-D1C1-4650-91BE-8521D9BBFBA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E1192E-D1C1-4650-91BE-8521D9BBFBA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA06B32C-8A35-4A47-8CB9-50B43103C244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA06B32C-8A35-4A47-8CB9-50B43103C244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA06B32C-8A35-4A47-8CB9-50B43103C244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA06B32C-8A35-4A47-8CB9-50B43103C244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6012CB82-50B5-4E3F-89BF-8537EC6EFE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6012CB82-50B5-4E3F-89BF-8537EC6EFE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6012CB82-50B5-4E3F-89BF-8537EC6EFE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6012CB82-50B5-4E3F-89BF-8537EC6EFE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,23 @@
+﻿@model IVH7_Cinema.Domain.Entities.Order
+
+@{
+    ViewBag.Title = "Bestelling voltooid";
+}
+
+<script src="~/Scripts/payment.js"></script>
+
+<h2>Bestelling voltooid</h2>
+
+<div class="order-complete">
+    U bestelling voor de film <span class="bold">@ViewBag.MovieTitle</span> is voltooid! <br />
+    Uw kaartjes worden nu afgedrukt.<br />
+    @if (@ViewBag.Is3D == true)
+    {
+        @:Er wordt ook een bonnetje afgedrukt voor uw bestelde 3D brillen! <br />
+        @:Geef deze aan de balie om uw 3D brillen te ontvangen.<br />
+    }
+    Veel plezier bij de voorstelling!
+    
+    <br /> <br />
+    U wordt automatisch teruggelinkt naar de homepage in <span class="time">10</span> seconden.
+</div>

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div id="content_buttons">
+    <h2>Hoofdscherm</h2>
+
+        <button type="button" class="btn btn-lg btn-success" style="height: 60px; display: block; width: 97%; margin: 20px auto 0px;" onclick="location.href='@Url.Action("FilmIndex", "Cinema")';return false;">Kaartjes kopen</button>
+        <button type="button" class="btn btn-lg btn-info" style="height: 60px; display: block; width: 97%; margin: 20px auto" onclick="location.href='@Url.Action("ReserveringOphalen", "Cinema")';return false;">Uw gereserveerde kaartjes ophalen</button>
+</div>

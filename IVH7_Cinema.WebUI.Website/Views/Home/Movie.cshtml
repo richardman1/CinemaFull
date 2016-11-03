@@ -1,0 +1,322 @@
+﻿@model List<IVH7_Cinema.Domain.Entities.Show>
+@using IVH7_Cinema.Domain.Entities;
+
+@{
+    Layout = null;
+}
+
+@{
+    var MovieTitel = @Model.First().Movie.Title;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - CinemA Website</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/index.js"></script>
+    <script src="~/Scripts/payment.js"></script>
+    <script src="~/Scripts/movie.js"></script>
+    <script src="~/Scripts/order.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="~/Content/Images/logo_website.png" alt="">
+                </a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink(@Resources.MenuHome, "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@Resources.MenuCinemas<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @{
+                                List<string> cities = new List<string>();
+                                int x = 0;
+                                foreach (var cinema in (ViewData["Cinemas"]) as List<Cinema>)
+                                {
+                                    if (x == 0)
+                                    {
+                                        if (!cities.Contains(cinema.City))
+                                        {
+                                            cities.Add(cinema.City);
+                                            <li class="li-header">@cinema.City</li>
+                                            <li><a href="/Home/Cinema/@cinema.Name/">@cinema.Name</a></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (!cities.Contains(cinema.City))
+                                        {
+                                            cities.Add(cinema.City);
+                                            <li class="divider"></li>
+                                            <li class="li-header">@cinema.City</li>
+                                            <li><a href="/Home/Cinema/@cinema.Name/">@cinema.Name</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="/Home/Cinema/@cinema.Name/">@cinema.Name</a></li>
+                                        }
+                                    }
+                                    x++;
+                                }
+                            }
+                        </ul>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Movie" ? "active" : "")">@Html.ActionLink(@Resources.MenuMovies, "MovieOverview", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "FilmWeekOverview" ? "active" : "")">@Html.ActionLink(@Resources.MenuNow, "FilmWeekOverview", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "NewsLetter" ? "active" : "")">@Html.ActionLink(@Resources.MenuNews, "NewsLetter", "Home")</li>
+                </ul>
+            </div><!--/.nav-collapse -->
+
+            <div class="language">
+                <ul class="language">
+                    @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("nl-NL"))
+                    {
+                        <li class="lang-active"><a href="@Url.Action("SetCulture", "Home", new { culture = "nl-nl", returnUrl = @Request.Url })"><img src="~/Content/Images/Netherlands.png" /></a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("SetCulture", "Home", new { culture = "nl-nl", returnUrl = @Request.Url })"><img src="~/Content/Images/Netherlands.png" /></a></li>
+                    }
+                    @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("en-GB"))
+                    {
+                        <li class="lang-active"><a href="@Url.Action("SetCulture", "Home", new { culture = "en-gb", returnUrl = @Request.Url })"><img src="~/Content/Images/UnitedKingdom.png" /></a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("SetCulture", "Home", new { culture = "en-gb", returnUrl = @Request.Url })"><img src="~/Content/Images/UnitedKingdom.png" /></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="movie-banner" style="background-image:url('../Content/MovieBanners/@Model.First().Movie.BannerURL')">
+        <button class="movie-trailer-button"@if(System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("en-GB")){ @:style="background: url('../Content/Images/watch-trailerEN.png') no-repeat scroll center 0 rgba(0, 0, 0, 0);"
+                }></button>
+        <div class="movie-trailer" style="display: inline-block; display: none;">
+            <iframe src="@(Model.First().Movie.TrailerURL)imdb/embed?autoplay=false&width=854" width="854" height="480" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
+        </div>
+        <div class="movie-title-box">
+            <span class="movie-title">@Model.First().Movie.Title</span>
+        </div>
+    </div>
+
+    <div class="container body-content" style="padding: 0; background-color: rgba(255,255,255,.7);">
+        <div class="section group">
+            <div class="col span_2_of_3">
+                <img src="~/Content/MovieCovers/@Model.First().Movie.ImageURL" style="float:left; width: 150px; padding-right: 20px;" />
+                @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("nl-NL"))
+                {
+                    @Model.First().Movie.Description
+                }
+                @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("en-GB"))
+                {
+                    @Model.First().Movie.DescriptionEN
+                }
+
+            </div>
+            <div class="col span_1_of_3">
+                <h2>@Resources.MovieSpecs</h2>
+                <span class="movie-details-span">
+                    @Resources.MovieGenre:
+                    @{
+                        int i = 0;
+                        int count = Model.First().Movie.Genres.Count;
+                        foreach (var g in Model.First().Movie.Genres)
+                        {
+                            i++;
+                            if (i != count)
+                            {
+                                @g.Name@:,
+                            }
+                            else
+                            {
+                                @g.Name
+                            }
+                        }
+                    }
+                </span>
+                <span class="movie-details-span">@Resources.MovieDuration: @Model.First().Movie.Duration minuten</span>
+                <span class="movie-details-span">@Resources.MovieDirector: @Model.First().Movie.Director</span>
+                <span class="movie-details-span">
+                    @Resources.MovieLanguage:
+                    @{
+                        int i2 = 0;
+                        int count2 = Model.First().Movie.Languages.Count;
+                        foreach (var l in Model.First().Movie.Languages)
+                        {
+                            i2++;
+                            if (i2 != count2)
+                            {
+                                @l.LanguageName@:,
+                                                        }
+                            else
+                            {
+                                @l.LanguageName
+                            }
+                        }
+                    }
+                </span>
+                <span class="movie-details-span">@Resources.MovieRating: <a href="@Model.First().Movie.ImdbURL">@Model.First().Movie.ImdbRating</a></span>
+                <span class="movie-details-span">
+                    @Resources.MovieClassification:
+                    @{
+                        int i3 = 0;
+                        int count3 = Model.First().Movie.Ratings.Count;
+                        foreach (var r in Model.First().Movie.Ratings)
+                        {
+                            i3++;
+                            if (i3 != count3)
+                            {
+                                <img style="width: 25px;" src="~/Content/Images/@r.ImageUrl" />
+                            }
+                            else
+                            {
+                                <img style="width: 25px;" src="~/Content/Images/@r.ImageUrl" />
+                            }
+                        }
+                    }
+
+
+                </span>
+                <span class="movie-details-span">@Resources.MovieSubtitles: @Model.First().Subtitles </span>
+            </div>
+        </div>
+
+        <hr />
+
+        @if (Model.First().ShowID != 0)
+        {
+            <div class="section group">
+                <div class="col span_3_of_3">
+                    <h2>@Resources.MovieTicketHeader Breda</h2>
+                    @{
+            List<String> dates = new List<String>();
+            foreach (var s in Model)
+            {
+                if (!dates.Contains(s.DateTime.ToShortDateString()) && s.Cinema.Name.Equals("Breda"))
+                {
+                    dates.Add(s.DateTime.ToShortDateString());
+                }
+            }
+
+                    }
+                    <table class="show_table">
+                        <tbody>
+
+                            @foreach (var d in dates)
+                            {
+
+                                <tr>
+                                    <td class="date">@Convert.ToDateTime(d).ToString("dddd")</td>
+                                    <td class="times">
+                                        @foreach (Show y in Model.OrderBy(y => y.DateTime.ToShortTimeString()))
+                                        {
+                                            if (y.DateTime.ToShortDateString().Equals(d) && y.Cinema.Name.Equals("Breda"))
+                                            {
+                                                <a href="@Url.Action("Order", "Home", new { ShowID = @y.ShowID })" style="display:inline-block; border-radius:16px;" class="@(y.AvailableSeats() == 0 ? "show-full" : "")">
+                                                    @y.DateTime.ToShortTimeString() - @Resources.Screen: @y.Screen.ScreenNumber
+                                                    @if (y.Is3D)
+                                                    {
+                                                        <img src="~/Content/Images/3d.png" width="22px" />
+                                                    }
+                                                </a>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="section group">
+                <div class="col span_3_of_3">
+                    <h2>@Resources.MovieTicketHeader Tilburg</h2>
+                    @{
+                            List<String> dates2 = new List<String>();
+                            foreach (var s in Model)
+                            {
+                                if (!dates2.Contains(s.DateTime.ToShortDateString()) && s.Cinema.Name.Equals("Tilburg"))
+                                {
+                                    dates2.Add(s.DateTime.ToShortDateString());
+                                }
+                            }
+
+                    }
+                    <table class="show_table">
+                        <tbody>
+
+                            @foreach (var d in dates2)
+                            {
+
+                                <tr>
+                                    <td class="date">@Convert.ToDateTime(d).ToString("dddd")</td>
+                                    <td class="times">
+                                        @foreach (Show y in Model.OrderBy(y => y.DateTime.ToShortTimeString()))
+                                        {
+                                            if (y.DateTime.ToShortDateString().Equals(d) && y.Cinema.Name.Equals("Tilburg"))
+                                            {
+
+
+                                                <a href="@Url.Action("Order", "Home", new { ShowID = @y.ShowID })" style="display:inline-block; border-radius:16px; " class="@(y.AvailableSeats() == 0 ? "show-full" : "")">
+                                                    @y.DateTime.ToShortTimeString() - @Resources.Screen: @y.Screen.ScreenNumber
+                                                    @if (y.Is3D)
+                                                    {
+                                                        <img src="~/Content/Images/3d.png" width="22px" />
+                                                    }
+                                                </a>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr />
+        }
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">&copy; @DateTime.Now.Year - CinemA Website</p>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

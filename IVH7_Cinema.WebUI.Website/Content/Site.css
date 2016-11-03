@@ -1,0 +1,964 @@
+﻿html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+body {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.container {
+    position: relative;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-brand {
+    margin-top: -2px;
+    padding: 0;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar {
+    background-color: #ec0034;
+    float: left;
+}
+
+.language {
+    display: block;
+    position: absolute;
+    height: 40px;
+    width: 140px;
+    top: 0;
+    right: 0;
+}
+
+.language ul {
+    list-style:none;
+}
+
+.language li {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    background-color: #ec0034;
+}
+
+.language a {
+
+}
+
+.language a:link {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.language a:visited {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.language a:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: normal;
+    background-color: #999999;
+}
+
+.language a:active {
+    color: #999999;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.language li.lang-active {
+    background-color: #d5d5d5;
+
+}
+
+.cinema {
+    display: block;
+}
+
+.jumbotron {
+    background-image: url("../Content/Images/header_website.png");
+    color: white;
+    width: 100%;
+}
+
+.jumbotron-content {
+    margin: 0 auto;
+    position: relative;
+    width: 1170px;
+}
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  GROUPING  ============================================================================= */
+
+
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.6%;
+}
+
+    .col:first-child {
+        margin-left: 0;
+    }
+/* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+}
+
+/*  GRID OF THREE   ============================================================================= */
+
+
+.span_3_of_3 {
+    width: 100%;
+}
+
+.span_2_of_3 {
+    width: 66.13%;
+}
+
+.span_1_of_3 {
+    width: 32.26%;
+}
+
+/*  GRID OF TWO  */
+.span_2_of_2 {
+	width: 100%;
+}
+.span_1_of_2 {
+	width: 49.2%;
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .span_3_of_3 {
+        width: 100%;
+    }
+
+    .span_2_of_3 {
+        width: 100%;
+    }
+
+    .span_1_of_3 {
+        width: 100%;
+    }
+}
+
+#content_links {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.header_text {
+    float: left;
+}
+
+.header_info {
+    height: 100px;
+    width: 200px;
+    float: right;
+    background-color: #808080;
+    padding: 15px;
+    text-align: center;
+}
+
+.weeklist {
+    list-style: none;
+    padding: 5px;
+}
+
+    .weeklist li {
+        display: inline-block;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        color: white;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: bold;
+        background-color: #ec0034;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        border-radius: 6px;
+    }
+
+    .weeklist a {
+        padding: 6px;
+        border-radius: 6px;
+    }
+
+        .weeklist a:link {
+            color: white;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .weeklist a:visited {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .weeklist a:hover {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: normal;
+            background-color: #999999;
+        }
+
+        .weeklist a:active {
+            color: #999999;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+    .weeklist li.week-active {
+        background-color: black;
+        border-radius: 6px;
+    }
+
+.singlemovie {
+    display: block;
+    border-bottom: 1px solid #999999;
+    width: 100%;
+    min-height: 180px;
+    padding-top: 10px;
+}
+
+.singlemoviecover {
+    float: left;
+}
+
+    .singlemoviecover img {
+        width: 100px;
+    }
+
+.singlemovieinfo {
+    padding-left: 20px;
+    float: left;
+    max-width: 600px;
+    min-height: 120px;
+}
+
+    .singlemovieinfo h3 {
+        margin-top: 0px;
+        padding-bottom: 10px;
+    }
+
+    .singlemovieinfo a {
+        display: inline-block;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #d5d5d5;
+    }
+
+        .singlemovieinfo a:link {
+            color: black;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: bold;
+            border-radius: 16px;
+        }
+
+        .singlemovieinfo a:visited {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .singlemovieinfo a:hover {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: normal;
+            background-color: #999999;
+        }
+
+        .singlemovieinfo a:active {
+            color: #999999;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+.soon {
+    background-color: #f5f5f5;
+    margin-top: 30px;
+}
+
+    .soon h3 {
+        margin-top: 5px;
+    }
+
+.soon-single {
+    display: inline-block;
+    padding: 10px;
+}
+
+    .soon-single img {
+        width: 120px;
+        height: 172px;
+        padding: 0px;
+    }
+
+    .soon-single p {
+        width: 120px;
+        padding: 0px;
+        text-overflow: ellipsis;
+        /* Required for text-overflow to do anything */
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+.soon-date {
+    color: #808080;
+}
+
+    .soon-date img {
+        width: 10px;
+        height: 10px;
+    }
+
+.soon a:link {
+    color: black;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.soon a:visited {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.soon a:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: normal;
+    background-color: #999999;
+}
+
+.soon a:active {
+    color: #999999;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.movie-banner:before {
+    content: "";
+    display: block;
+}
+
+.movie-banner {
+    margin: 0 auto;
+    background-position: 50%;
+    display: block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 320px;
+    position: relative;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.movie-trailer {
+    height: 320px;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.box-shadow {
+    background: url("https://www.pathe.nl/themes/main/gfx/overlays/visual-shadow.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
+    bottom: 0;
+    left: 0;
+    height: 320px;
+    position: absolute;
+    width: 100%;
+}
+
+.movie-title-box {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.movie-title-box-details {
+    bottom: 14px;
+    color: #FFFFFF;
+    position: absolute;
+    width: 1170px;
+    z-index: 10;
+}
+
+.movie-title {
+    display: block;
+    position: absolute;
+    width: 1170px;
+    text-align: left;
+    font-size: 30px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    bottom: 0;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.movie-trailer-button {
+    -moz-appearance: button;
+    background: url("../Content/Images/watch-trailer.png") no-repeat scroll center 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    cursor: pointer;
+    font-size: 100%;
+    height: 80px;
+    line-height: normal;
+    outline: medium none;
+    overflow: visible;
+    position: absolute;
+    top: 41%;
+    vertical-align: baseline;
+    left: 41%;
+    width: 270px;
+}
+
+.movie-details-span {
+    display: block;
+}
+
+/*  SECTIONS  */
+.section {
+    clear: both;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+    display: block;
+    float: left;
+    margin: 1% 0 1% 1.6%;
+}
+
+    .col:first-child {
+        margin-left: 0;
+    }
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1; /* For IE 6/7 */
+}
+
+/*  GRID OF TWO  */
+.span_3_of_3 {
+    width: 98.39%;
+}
+
+.span_2_of_3 {
+    width: 66.13%;
+}
+
+.span_1_of_3 {
+    width: 32.26%;
+}
+
+    .span_1_of_3 h2 {
+        background-color: #ec0034;
+        margin: 0;
+        text-align: center;
+        color: #9d9d9d;
+        font-weight: bold;
+    }
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+@media only screen and (max-width: 766px) {
+    .language {
+        margin-right: 32px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .span_2_of_2, .span_1_of_2 {
+        width: 100%;
+    }
+}
+
+/* FOR ORDER */
+
+.order_table {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #BEBEBE;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px #CCCCCC;
+    border-spacing: 0;
+    font-size: 1.0em;
+    background-color: #f9f9f9;
+}
+
+    .order_table thead {
+        font-weight: bold;
+    }
+
+        .order_table thead th {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #EBF3FC), color-stop(1, #DCE9F9) );
+            background: -moz-linear-gradient(center top, #EBF3FC, #DCE9F9);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EBF3FC', endColorstr='#DCE9F9');
+            background-image: linear-gradient(center top, #EBF3FC, #DCE9F9);
+            background-color: #EBF3FC;
+            border-left: 1px solid #BEBEBE;
+            text-align: left;
+            padding: 10px;
+            background-color: #cccccc;
+        }
+
+            .order_table thead th:first-child {
+                border-top-left-radius: 6px;
+                border-left: none;
+            }
+
+            .order_table thead th:last-child {
+                border-top-right-radius: 6px;
+            }
+
+    /**
+   Order Table Columns 
+**/
+    .order_table .tariff {
+        width: 60%;
+    }
+
+    .order_table .amount {
+        width: 20%;
+    }
+
+    .order_table .pricePerTicket {
+        width: 10%;
+    }
+
+    .order_table .totalPrice {
+        width: 10%;
+    }
+
+    .order_table tr:hover {
+        background-color: rgba(130,130,130,.15);
+    }
+
+    .order_table td {
+        width: 20%;
+        border-top: 1px solid #BEBEBE;
+        border-left: 1px solid #BEBEBE;
+        text-align: left;
+        padding: 10px;
+        position: relative;
+    }
+
+.order-continue {
+    background-color: darkseagreen;
+}
+
+.filmkeuze p{
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    width: 170px;
+}
+
+#cancel{
+    float: left;
+}
+
+#continue{
+    float: right;
+}
+
+.show_table {
+    width: 100%;
+}
+
+    .show_table .date {
+        font-weight: bold;
+        width: 10%;
+    }
+
+    .show_table .times {
+        width: 90%;
+    }
+
+    .show_table tr {
+        border-top: 1px solid #BEBEBE;
+        border-bottom: 1px solid #BEBEBE;
+        padding: 20px;
+    }
+
+    .show_table td {
+        padding: 10px;
+    }
+
+    .show_table a {
+        padding: 5px;
+        background-color: #d5d5d5;
+    }
+
+        .show_table a:link {
+            color: black;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .show_table a:visited {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .show_table a:hover {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: normal;
+            background-color: #999999;
+        }
+
+        .show_table a:active {
+            color: #999999;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+.order_table td:first-child {
+    border-left: none;
+}
+
+.amountOfTickets {
+    -webkit-appearance: none;
+    margin: 0;
+    width: 50%;
+    text-align: right;
+}
+
+.increment {
+    width: 45%;
+    display: inline-block;
+    text-align: right;
+}
+
+    .increment img {
+        width: 20px;
+    }
+
+.totalPriceOrderInformation {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.btn-pay {
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #EBF3FC), color-stop(1, #DCE9F9) );
+    background: -moz-linear-gradient(center top, #EBF3FC, #DCE9F9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EBF3FC', endColorstr='#DCE9F9');
+    background-image: linear-gradient(center top, #EBF3FC, #DCE9F9);
+    background-color: #EBF3FC;
+    background-color: #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid #BEBEBE;
+    font-weight: bold;
+    box-shadow: 0 1px 1px #CCCCCC;
+}
+
+.jumbotron_text {
+    float: left;
+}
+
+.jumbotron_textSmall {
+    float: right;
+    top: 0;
+    background-color: rgba(66,66,66,.95);
+    color: #FFF;
+    padding: 20px;
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.btn-pay a {
+    color: #333;
+    text-decoration: none;
+}
+
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.li-header {
+    padding: 3px 20px;
+    font-weight: bold;
+}
+
+/* END OF ORDER*/
+
+/* HOMEPAGE */
+.homepage-container {
+    width: 100%;
+    position: relative;
+}
+
+.homepage-container #container {
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.homepage-movie {
+    background-clip: padding-box;
+    border: 1px solid #000;
+    border-radius: 2px;
+    float: left;
+    height: 254px;
+    margin: 0 0 1% 6.6% !important;
+    position: relative;
+    width: 180px;
+    box-shadow: 1px 1px 5px #000;
+    overflow: hidden;
+}
+
+.homepage-movie img {
+    max-height: 253px;
+    min-height: 253px;
+}
+
+.homepage-col {
+    width: 50%;
+    margin-left: 0;
+    position: relative;
+}
+
+.homepage-col-row {
+    width: 100%;
+    position: relative;
+}
+
+.homepage-col-header {
+    color: #FFF;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 0;
+    font-family: "Trade Gothic Bold Condensed 20",Arial,Helvetica serif;
+    line-height: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 20px #fff;
+}
+
+.homepage-movie-title {
+    background-color: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    padding: 5px;
+    position: absolute;
+    width: 179px;
+    border: 1px solid #000;
+    border-top: 2px solid #000;
+    text-align: center;
+    color: #FFF;
+    text-shadow: 1px 1px 1px black;
+}
+
+.visual-cta.cta-lb {
+    bottom: 261px;
+    left: 150px;
+}
+.visual-cta {
+    position: absolute;
+    text-align: right;
+}
+
+.cta-large-Birdman {
+    bottom: 5%;
+    left: 3%;
+}
+
+.cta-large-Focus {
+    bottom: 65%; 
+    left: 43%;
+}
+
+.cta-large-Divergent-Series-Insurgent {
+    bottom: 20%; 
+    left: 50%;
+}
+
+.visual-cta.cta-large .title {
+    font-size: 40px;
+    line-height: 36px;
+    padding: 18px;
+}
+.visual-cta .title {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+    color: #ec0034;
+    display: block;
+    font: 30px/25px "Trade Gothic Bold Condensed 20",Arial,Helvetica serif;
+    outline: medium none;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.visual-cta .title span:first-child {
+    color: #fff;
+}
+.visual-cta .title span {
+    display: block;
+    text-align: left;
+}
+
+.visual-cta .btn-type-01 {
+    margin-top: 3px;
+    padding: 4px 8px 5px;
+}
+.btn-type-01 {
+    background: none repeat scroll 0 0 #ec0034;
+    color: white;
+    font-size: 20px;
+    padding: 15px 20px;
+}
+
+.validation-summary-errors li{
+    list-style: none;
+}
+
+.validation-summary-errors ul{
+    padding-left: 0px;
+}
+
+.singlemovieinfo a.show-full{
+    background-color: #ef6b6b;
+    pointer-events: none;
+}
+
+.times a.show-full{
+    background-color: #ef6b6b;
+    pointer-events: none;
+}

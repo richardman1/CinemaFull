@@ -1,0 +1,40 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.IDealListViewModel
+
+@{
+    ViewBag.Title = "iDealPayment";
+}
+
+<h2>iDeal</h2>
+
+<link href="~/Content/PSPControllerStyle.css" rel="stylesheet" type="text/css" />
+
+@using (Html.BeginForm("iDealPayment", "PSP", new { OrderID = @Model.order.OrderID }, FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="col-md-12">
+            <div>
+                <label>Rekeningnummer: </label> @Html.TextBoxFor(x => x.AccountNumber, new { id = "Rekeningnummer", @class = "form-control" })
+            </div>
+            <div>
+                <label>Pasnummer: </label> @Html.TextBoxFor(x => x.CardNumber, new { id = "Pasnummer", @class = "form-control" })
+            </div>
+            <div>
+                <label>Betaalinstructies</label><br/>
+                <p>
+                    1. Plaats uw pas in de abn amro identifier<br/>
+                    2. Toets uw pincode in <br/>
+                    3. Toets de volgende code in in de identifier: <b>1234 5678</b> <br/>
+                    4. vul de response van de identifier in: <br/>
+                </p>
+            </div>
+            <div>
+                <label>Validatiecode: </label> @Html.TextBoxFor(x => x.Validation, new { id = "Validatiecode", @class = "form-control" })
+            </div>
+            <div>
+                <p>klik op verzenden onder in het scherm om uw aankoop te betalen uw betaling wordt direct uitgevoerd</p>
+            </div>
+        </div>
+    <div class="text-right">
+        <input class="btn btn-success" type="submit" value="Verder" />
+    </div>
+}

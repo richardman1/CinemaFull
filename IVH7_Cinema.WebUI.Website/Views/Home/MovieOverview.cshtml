@@ -1,0 +1,17 @@
+﻿@model IEnumerable<IVH7_Cinema.Domain.Entities.Movie>
+
+@{
+    ViewBag.Title = "Films";
+}
+<h2>@Resources.MovieOverviewHeader</h2>
+    @if (Model != null)
+    {
+        foreach (var M in Model)
+        {
+            @Html.Partial("MovieInOverview", M)
+        }
+    }
+    else
+    {
+        <h2>Er zijn geen films gevonden :(.</h2>
+    }

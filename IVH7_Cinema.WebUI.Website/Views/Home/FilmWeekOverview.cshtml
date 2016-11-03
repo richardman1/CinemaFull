@@ -1,0 +1,19 @@
+﻿@model IEnumerable<IVH7_Cinema.Domain.Entities.Movie>
+
+@{
+    ViewBag.Title = "Film Week";
+}
+<h2>@Resources.NowOverviewHeader</h2>
+
+@if (Model != null)
+{
+    foreach(var M in Model)
+    {
+        @Html.Partial("MovieInOverview", M)
+    }
+}
+else
+{
+    <h2>Er zijn geen films gevonden :(.</h2>
+}
+

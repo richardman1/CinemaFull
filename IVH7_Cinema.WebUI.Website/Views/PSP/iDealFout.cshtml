@@ -1,0 +1,16 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.IDealListViewModel
+
+@{
+    ViewBag.Title = "iDealFout";
+}
+
+<h2 class="text-center">Fout opgetreden!</h2>
+<p class="text-center">
+    <br />
+    Uw betaling is niet succesvol!<br />
+    <br />
+    De bestelling is verwijderd, en moet opnieuw aangemaakt worden.
+    <br />
+</p>
+
+<button type="button" id="cancel" class="btn btn-lg btn-danger text-left" onclick="location.href='@Url.Action("Index", "Home")'">OK</button>

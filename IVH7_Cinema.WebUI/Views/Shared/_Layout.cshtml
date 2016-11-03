@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/order.js"></script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="header">
+            <div id="top" class="imageMap">
+                <iframe src="http://free.timeanddate.com/clock/i4kmmsb4/n1297/tlnl14/fn17/fs30/fcfff/tct/pct/ftb/tt0/tm2/th1/ts1/tb2" frameborder="0" width="501" height="38" allowtransparency="true" style="float: right;"></iframe>
+            </div>
+        </div>
+        <!-- END header -->
+        <div id="content">
+            @RenderBody()
+        </div>
+        <!-- END content -->
+    </div>
+    <!-- END wrapper -->
+</body>
+</html>

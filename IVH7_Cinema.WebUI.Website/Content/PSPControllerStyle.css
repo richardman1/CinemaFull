@@ -1,0 +1,62 @@
+﻿label {
+    margin-bottom: 5px;
+    width: 90px;
+}
+
+.form-control {
+    display: inline!important;
+    margin-bottom: 5px;
+}
+
+input {
+    max-width: none!important;
+}
+
+
+/*******************************************************Formfields*****************************************************************/ 
+#Naam {
+    width: 400px;
+}
+
+#Adres {
+    width: 296px;
+}
+
+#Huisnummer{
+    width: 100px;
+}
+
+#Postcode {
+    width: 100px;
+}
+
+#Woonplaats{
+    width: 296px;
+}
+
+#Email {
+    width: 400px;
+}
+
+#Cardnummer {
+    width: 400px;
+}
+
+#CVC {
+    width: 400px;
+}
+
+#ExpirationMonth {
+    width:50px;
+}
+
+#ExpirationYear {
+    width:50px;
+}
+
+/************************************************************validation************************************************************/
+.field-validation-error {color: #f00;}
+.field-validation-valid {display: none;}
+.input-validation-error{border: 1px solid #f00; background-color: #fee;}
+.validation-summary-errors {font-weight: bold; color: #f00;}
+.validation-summary-valid {display: none;}

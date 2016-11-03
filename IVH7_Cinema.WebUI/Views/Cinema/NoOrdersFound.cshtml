@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Order is niet gevonden";
+}
+
+<h2>Order is niet gevonden</h2>
+
+<div class="no-orders">
+    Er is geen order gevonden met de ingevoerde reserveringscode. <br /> 
+    Probeer het nogmaals of koop een regulier kaartje. <br /> <br />
+
+    <button type="button" id="cancel" class="btn btn-lg btn-danger" onclick="location.href='@Url.Action("Index", "Cinema")';return false;">Terug naar het hoofdscherm</button>
+</div>

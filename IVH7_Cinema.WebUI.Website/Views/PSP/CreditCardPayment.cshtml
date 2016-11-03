@@ -1,0 +1,28 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.CreditCardListViewModel
+
+@{
+    ViewBag.Title = "CreditCardPayment";
+}
+
+<h2>CreditCardPayment</h2>
+
+<link href="~/Content/PSPControllerStyle.css" rel="stylesheet" type="text/css" />
+
+@using (Html.BeginForm("CreditCardPayment", "PSP", new { OrderID = @Model.order.OrderID }, FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="col-md-12">
+        <div>
+            <label>Cardnummer: </label> @Html.TextBoxFor(x => x.CreditCardNumber, new { id = "Cardnummer", @class = "form-control" })
+        </div>
+        <div>
+            <label>CVC: </label> @Html.TextBoxFor(x => x.CVC, new { id = "CVC", @class = "form-control" })
+        </div>
+        <div>
+            <label>Verloopdatum: </label> @Html.TextBoxFor(x => x.ExpirationMonth, new { id = "ExpirationMonth", @class = "form-control" }) / @Html.TextBoxFor(x => x.ExpirationYear, new { id = "ExpirationYear", @class = "form-control" })
+        </div>
+    </div>
+    <div class="text-right">
+        <input class="btn btn-success" type="submit" value="Verder" />
+    </div>
+}

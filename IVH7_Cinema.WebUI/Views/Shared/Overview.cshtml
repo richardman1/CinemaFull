@@ -1,0 +1,18 @@
+﻿@model IVH7_Cinema.WebUI.Models.ShowsListViewModel
+
+@*@foreach (var s in Model.Shows)
+{
+    <input type="submit" value="@s.Movie.Title"/>
+    <br /><br />
+}*@
+
+@foreach (var s2 in Model.Shows)
+{
+    //Aanpassen naar actionlink. Deze nieuwe controller methode laten aanroepen en extra index.cshtml maken waarin informatie opgehaald wordt aan de hand van ID
+    <a href="" class="show" id="@s2.Movie.MovieID"><p style="font-size : 16px; font-weight:bold;">@s2.Movie.Title</p><p>Starttijd: </p></a>
+    <br /><br />
+}
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x }))
+</div>

@@ -1,0 +1,33 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.ShowsListViewModel
+@using IVH7_Cinema.Domain.Entities;
+
+<div class="col-xs-6 col-lg-4 soon">
+    <h3>Binnenkort verwacht</h3>
+
+    @foreach (var m in Model.AllMovies)
+    {
+        if (m.ReleaseDate >= DateTime.Today.AddDays(5))
+        {
+            <a href="@Url.Action("Movie", "Home", new { MovieID = m.MovieID })" class="soon-single">
+                <img src="~/Content/MovieCovers/@m.ImageURL" class="soon-single" width="110px" />
+                <p>
+                    @m.Title
+                @foreach (Language l in m.Languages.ToList<Language>())
+                {
+                    if (l.LanguageName.Equals("Nederlands"))
+                    {
+                        <b>NL</b>
+                    }
+                    else
+                    {
+                        <b>EN</b>
+                    }
+                }
+            </p>
+            <p class="soon-date"><img src="~/Content/Images/calendar_2.png" width="10px" /> @m.ReleaseDate.ToShortDateString()</p>
+        </a>
+        }
+
+    }
+
+</div>

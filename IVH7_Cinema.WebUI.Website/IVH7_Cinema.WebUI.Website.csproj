@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA06B32C-8A35-4A47-8CB9-50B43103C244}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IVH7_Cinema.WebUI.Website</RootNamespace>
+    <AssemblyName>IVH7_Cinema.WebUI.Website</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\iTextSharp.5.5.5\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\12 jaar.png" />
+    <Content Include="Content\Images\16 jaar.png" />
+    <Content Include="Content\Images\3d.png" />
+    <Content Include="Content\Images\6 jaar.png" />
+    <Content Include="Content\Images\9 jaar.png" />
+    <Content Include="Content\Images\Alle Leeftijden.png" />
+    <Content Include="Content\Images\Angst.png" />
+    <Content Include="Content\Images\calendar_2.png" />
+    <Content Include="Content\Images\Discriminatie.png" />
+    <Content Include="Content\Images\Drugs -en Drankmisbruik.png" />
+    <Content Include="Content\Images\France.png" />
+    <Content Include="Content\Images\Germany.png" />
+    <Content Include="Content\Images\Geweld.png" />
+    <Content Include="Content\Images\Grof Taalgebruik.png" />
+    <Content Include="Content\Images\header_website.png" />
+    <Content Include="Content\Images\logo_website.png" />
+    <Content Include="Content\Images\minus.jpg" />
+    <Content Include="Content\Images\Netherlands.png" />
+    <Content Include="Content\Images\plus.jpg" />
+    <Content Include="Content\Images\Seks.png" />
+    <Content Include="Content\Images\UnitedKingdom.png" />
+    <Content Include="Content\Images\watch-trailer.png" />
+    <Content Include="Content\Images\watch-trailerEN.png" />
+    <Content Include="Content\jquery.skippr.css" />
+    <Content Include="Content\MovieBanners\American Sniper.jpg" />
+    <Content Include="Content\MovieBanners\Big Hero 6.jpg" />
+    <Content Include="Content\MovieBanners\Birdman.jpg" />
+    <Content Include="Content\MovieBanners\Chappie.jpg" />
+    <Content Include="Content\MovieBanners\Fast &amp; Furious 7.jpg" />
+    <Content Include="Content\MovieBanners\Fifty Shades of Grey.jpg" />
+    <Content Include="Content\MovieBanners\Focus.jpg" />
+    <Content Include="Content\MovieBanners\Gooische Vrouwen 2.jpg" />
+    <Content Include="Content\MovieBanners\Imitation Game.jpg" />
+    <Content Include="Content\MovieBanners\Insurgent.jpg" />
+    <Content Include="Content\MovieBanners\Kingsman.jpg" />
+    <Content Include="Content\MovieBanners\Michiel de Ruyter.jpg" />
+    <Content Include="Content\MovieBanners\Paddington.jpg" />
+    <Content Include="Content\MovieBanners\Run All Night.jpg" />
+    <Content Include="Content\MovieBanners\Seventh Son.jpg" />
+    <Content Include="Content\MovieBanners\The Avengers Age of Ultron.jpg" />
+    <Content Include="Content\MovieCovers\American Sniper.jpg" />
+    <Content Include="Content\MovieCovers\avengers2.jpg" />
+    <Content Include="Content\MovieCovers\Big Hero 6.jpg" />
+    <Content Include="Content\MovieCovers\Birdman.jpg" />
+    <Content Include="Content\MovieCovers\Chappie.jpg" />
+    <Content Include="Content\MovieCovers\fastfurious7.jpg" />
+    <Content Include="Content\MovieCovers\Fifty Shades of Grey.jpg" />
+    <Content Include="Content\MovieCovers\Focus.jpg" />
+    <Content Include="Content\MovieCovers\Gooische Vrouwen 2.jpg" />
+    <Content Include="Content\MovieCovers\Imitation Game.jpg" />
+    <Content Include="Content\MovieCovers\Insurgent.jpg" />
+    <Content Include="Content\MovieCovers\Kingsman.jpg" />
+    <Content Include="Content\MovieCovers\Michiel de Ruyter.jpg" />
+    <Content Include="Content\MovieCovers\Paddington.jpg" />
+    <Content Include="Content\MovieCovers\Run All Night.jpg" />
+    <Content Include="Content\MovieCovers\Seventh Son.jpg" />
+    <Content Include="Content\MovieCovers\watch-trailerEN.png" />
+    <Content Include="Content\PSPControllerStyle.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\watch-trailer.png" />
+    <Content Include="Content\watch-trailerEN.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\Local Deployment 2.pubxml" />
+    <None Include="Properties\PublishProfiles\Local Deployment.pubxml" />
+    <None Include="Properties\PublishProfiles\website lokaal 2.pubxml" />
+    <None Include="Properties\PublishProfiles\Website.pubxml" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="HtmlHelpers\CultureHelpers.cs" />
+    <Compile Include="Models\CreditCardListViewModel.cs" />
+    <Compile Include="Models\HomepageListViewModel.cs" />
+    <Compile Include="Models\MoviesListViewModel.cs" />
+    <Compile Include="Models\IDealListViewModel.cs" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\homepage.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\InformationPost.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.skippr.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\movie.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\order.js" />
+    <Content Include="Scripts\payment.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PSPController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
+    <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\Luhn.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\ReserveringListViewModel.cs" />
+    <Compile Include="Models\ShowsListViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\FilmWeekOverview.cshtml" />
+    <Content Include="Views\Home\NewsLetter.cshtml" />
+    <Content Include="Views\Shared\DaySummary.cshtml" />
+    <Content Include="Views\Home\Movie.cshtml" />
+    <Content Include="Views\PSP\InformationPost.cshtml" />
+    <Content Include="Views\PSP\iDealPayment.cshtml" />
+    <Content Include="Views\PSP\CreditCardPayment.cshtml" />
+    <Content Include="Views\PSP\Reservering.cshtml" />
+    <Content Include="Views\Home\Order.cshtml" />
+    <Content Include="Views\PSP\IDealBetalingSucces.cshtml" />
+    <Content Include="Views\Shared\MovieInOverview.cshtml" />
+    <Content Include="Views\Home\MovieOverview.cshtml" />
+    <Content Include="Views\PSP\CreditCardBetalingSucces.cshtml" />
+    <Content Include="Views\PSP\iDealFout.cshtml" />
+    <Content Include="Views\PSP\CreditCardFout.cshtml" />
+    <Content Include="Views\Home\Cinema.cshtml" />
+    <Content Include="Views\Shared\ComingSoon.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="PDFs\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Nav\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IVH7_Cinema.Domain\IVH7_Cinema.Domain.csproj">
+      <Project>{a5e16c0f-7402-4f98-9552-e376432aca3e}</Project>
+      <Name>IVH7_Cinema.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IVH7_Cinema.Resources\IVH7_Cinema.Resources.csproj">
+      <Project>{6012cb82-50b5-4e3f-89bf-8537ec6efe4c}</Project>
+      <Name>IVH7_Cinema.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2940</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2940/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

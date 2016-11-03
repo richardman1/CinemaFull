@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Reservering ophalen";
+}
+
+<h2>Reservering ophalen</h2>
+
+<link href="~/Content/Pin-Theme.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+    function fillField(nr) {
+        var pin = document.getElementById("InputPin");
+        var pinfull = pin.value;
+
+        if (pin.value.length < 10) {
+            pin.value = pin.value + nr;
+        }
+    }
+
+    function empty() {
+        var pin = document.getElementById("InputPin");
+        //alert("clear");
+        pin.value = "";
+    }
+
+</script>
+
+<div id="getal">
+    <h1>Vul uw reserveringscode in</h1>
+</div>
+@using (Html.BeginForm("PinCheck", "Cinema", FormMethod.Post, new { enctype = "multipart/form"}))
+{ 
+<div id="calculator">
+    <div class="top">
+        <div class="screen">
+            <input type="text" name="code" id="InputPin" readonly />
+        </div>
+    </div>
+    
+    <div class="keys">
+        <button type="button" class="numbers" onclick="fillField(7)">7</button>
+        <button type="button" class="numbers" onclick="fillField(8)">8</button>
+        <button type="button" class="numbers" onclick="fillField(9)">9</button>
+
+        <button type="button" class="numbers" onclick="fillField(4)">4</button>
+        <button type="button" class="numbers" onclick="fillField(5)">5</button>
+        <button type="button" class="numbers" onclick="fillField(6)">6</button>
+
+        <button type="button" class="numbers" onclick="fillField(1)">1</button>
+        <button type="button" class="numbers" onclick="fillField(2)">2</button>
+        <button type="button" class="numbers" onclick="fillField(3)">3</button>
+
+
+        <button type="button" class="cancel" onclick="empty()">X</button>
+        <button type="button" class="numbers" onclick="fillField(0)">0</button>
+        <input type="submit" class="ok" value="OK">       
+    </div>
+    
+</div>
+}
+
+<button type="button" id="cancel" class="btn btn-lg btn-danger" style="width: 120px;" onclick="location.href='@Url.Action("FilmIndex", "Cinema")';return false;">Annuleren</button>

@@ -1,0 +1,142 @@
+﻿@model IVH7_Cinema.Domain.Entities.Show
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Order";
+}
+
+@{
+    System.Diagnostics.Debug.WriteLine("#6 - OrderView - Aantal gevonden seats bij order view: " + Model.Screen.Seats.Count());
+}
+
+<input id="totalAvailableSeats" type="text" value="@Model.AvailableSeats()" style="display: none;" />
+
+<div class="col-xs-12 col-sm-6 col-lg-8">
+    <h2>@Resources.OrderHeader - @Model.Movie.Title</h2>
+    <h5>@Resources.OrderSeats <span id="availableSeats"></span></h5>
+
+    <form id="TariffForm" action="/PSP/Information?ShowID=@Model.ShowID" method="post">
+        <table class="order_table">
+            <thead>
+                <tr>
+                    <th class="tariffHeader">
+                        @Resources.OrderTableTariff
+                    </th>
+                    <th class="amountHeader">
+                        @Resources.OrderTableAmount
+                    </th>
+                    <th class="pricePerTicketHeader">
+                        @Resources.OrderTablePrice
+                    </th>
+                    <th class="totalPriceHeader">
+                        @Resources.OrderTableTotal
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var x in @ViewBag.Tariffs)
+                {
+                    double price = x.calculatePrice(@Model);
+                    bool doesApply = x.DoesApply;
+
+                    if (@Model.Is3D == false)
+                    {
+                        System.Diagnostics.Debug.WriteLine(@Model.Is3D);
+                        if (@x.Name.Equals("3D Bril") == false)
+                        {
+                            if (doesApply)
+                            {
+                                <tr>
+                                    <td class="tariff">
+                                        @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("nl-NL"))
+                                        {
+                                        @x.Name
+                                        }
+                                        @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("en-GB"))
+                                        {
+                                            @x.EnglishName
+                                        }
+                                    </td>
+                                    <td class="amount">
+                                        <input name="@x.Name" type="text" class="amountOfTickets" value="0" />
+                                        <div class="increment">
+                                            <img class="decrease" src="~/Content/Images/minus.jpg" style="margin-left: 3px;" />
+                                            <img class="increase" src="~/Content/Images/plus.jpg" />
+                                        </div>
+                                    </td>
+                                    <td class="pricePerTicket">
+                                        @String.Format("{0:0.00}", @x.calculatePrice(@Model)).Replace(",", ".")
+                                    </td>
+                                    <td class="totalPrice">
+                                        €0.00
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (doesApply)
+                        {
+                            System.Diagnostics.Debug.WriteLine("3D Available");
+                            <tr>
+                                <td class="tariff">
+                                    @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("nl-NL"))
+                                    {
+                                    @x.Name
+                                    }
+                                    @if (System.Threading.Thread.CurrentThread.CurrentCulture.ToString().Equals("en-GB"))
+                                    {
+                                        @x.EnglishName
+                                    }
+                                </td>
+                                <td class="amount">
+                                    <input name="@x.Name" type="text" class="amountOfTickets" value="0" />
+                                    <div class="increment">
+                                        <img class="decrease" src="~/Content/Images/minus.jpg" style="margin-right: 10px;" />
+                                        <img class="increase" src="~/Content/Images/plus.jpg" />
+                                    </div>
+                                </td>
+                                <td class="pricePerTicket">
+                                    €@String.Format("{0:0.00}", @x.calculatePrice(@Model)).Replace(",", ".")
+                                </td>
+                                <td class="totalPrice">
+                                    €0.00
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+
+        <div class="totalPriceOrderInformation">
+            <span>@Resources.OrderTableTotal:</span>
+            <span class="totalPriceOrder">€0.00</span>
+            <input id="totalPriceOrder" name="totalPriceOrder" type="text" value="0" style="display: none;" />
+            <input id="totalOrderedTickets" type="text" value="0" style="display: none;" />
+            <div class="buttons">
+                <br />
+                <button type="button" id="cancel" class="btn btn-lg btn-danger" onclick="location.href='@Url.Action("Index", "Home")';return false;">@Resources.ButtonCancel</button>
+                @*<button type="button" disabled="disabled" id="continue" class="btn btn-lg btn-success" onclick="location.href='@Url.Action("PinView", "Pin", new { ShowID = ViewBag.ShowID})';return false;">Verdergaan</button>*@
+                <input type="submit" class="form--submit" style="display: none" />
+                <a id="continue" class="btn btn-lg btn-success" href="#">@Resources.ButtonPay</a>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="col-xs-6 col-lg-4 filmkeuze">
+    <h3>@Resources.OrderChoice</h3>
+
+    <img src="~/Content/MovieCovers/@Model.Movie.ImageURL" />
+    <p>@Model.Movie.Title</p>
+    <p>
+        @Model.DateTime.ToString("dddd dd-MM-yyyy")
+        @Model.DateTime.ToString("HH:mm", new System.Globalization.CultureInfo("nl-NL"))
+    </p>
+
+</div>

@@ -1,0 +1,55 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.ShowsListViewModel
+@using System.Linq;
+@using IVH7_Cinema.Domain.Entities;
+
+<div class="movielist">
+        
+    @foreach (var m in Model.Movies) {
+        <div class="singlemovie">
+            <div class="singlemoviecover">
+                <img src="~/Content/MovieCovers/@m.ImageURL" />
+            </div>
+            <div class="singlemovieinfo">
+                <h3>
+                    @m.Title @{
+                        foreach(Language l in m.Languages.ToList<Language>()){
+                            if(l.LanguageName.Equals("Nederlands")){
+                                <b>NL</b>
+                            }
+                            else
+                            {
+                                <b>EN</b>
+                            }
+                        }
+        int i3 = 0;
+        int count3 = m.Ratings.Count;
+        foreach (var x in m.Ratings) {
+            i3++;
+            if (i3 != count3) {
+                <img style="width: 25px;" src="~/Content/Images/@x.ImageUrl" />
+            } else {
+                <img style="width: 25px;" src="~/Content/Images/@x.ImageUrl" />
+            }
+        }
+                    }
+                </h3>
+
+                @foreach (var s in Model.Shows.OrderBy(x => x.DateTime).ThenBy(x => x.ScreenID))
+                {
+                    if (s.MovieID == m.MovieID)
+                    {
+                        <a href="@Url.Action("Order", "Home", new { ShowID = @s.ShowID })" class="@(s.AvailableSeats() == 0 ? "show-full" : "")">
+                            @s.DateTime.ToShortTimeString() - (@Resources.Screen: @s.ScreenID)
+                            @if (s.Is3D)
+                            {
+                                <img src="~/Content/Images/3d.png" width="22px" />
+                            }
+                        </a>
+                    }
+                }
+            </div>
+
+        </div>
+    }
+
+</div>

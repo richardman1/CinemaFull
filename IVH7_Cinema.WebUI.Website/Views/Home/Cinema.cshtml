@@ -1,0 +1,48 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.ShowsListViewModel
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Bioscoop";
+}
+<div class="col-xs-12 col-sm-6 col-lg-8">
+    @if (ViewContext.RouteData.Values["Id"] == null)
+    {
+        <h2>@Resources.OverviewToday @DateTime.Today.ToString("dddd dd MMMM")</h2>
+    }
+    else
+    {
+        <h2>@Resources.OverviewToday @Convert.ToDateTime(ViewContext.RouteData.Values["Id"].ToString()).ToString("dddd dd MMMM")</h2>
+    }
+
+    <div class="weeklist">
+        <ul class="weeklist">
+            @if (ViewContext.RouteData.Values["Id"] == null)
+            {
+                <li class="week-active" )"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(1).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(1).ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(2).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(2).ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(3).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(3).ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(4).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(4).ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(5).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(5).ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(6).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(6).ToString("dddd")</a></li>
+                <li><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(7).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(7).ToString("dddd")</a></li>
+            }
+            else
+            {
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(1).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(1).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(1).ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(2).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(2).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(2).ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(3).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(3).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(3).ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(4).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(4).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(4).ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(5).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(5).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(5).ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(6).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(6).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(6).ToString("dddd")</a></li>
+                <li class="@(ViewContext.RouteData.Values["Id"].ToString() == DateTime.Now.AddDays(7).ToString("d-M-yyyy", new CultureInfo("nl-NL")) ? "week-active" : "")"><a href="@Url.Action("Cinema", "Home", new { cinema = ViewBag.Cinema, Id = DateTime.Now.AddDays(7).ToString("d-M-yyyy", new CultureInfo("nl-NL")) })">@DateTime.Today.AddDays(7).ToString("dddd")</a></li>
+            }
+        </ul>
+    </div>
+
+    @Html.Partial("DaySummary", Model)
+
+</div>
+
+@Html.Partial("ComingSoon")

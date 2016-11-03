@@ -1,0 +1,59 @@
+﻿@model IVH7_Cinema.WebUI.Website.Models.Payment
+
+@{
+    ViewBag.Title = "Information";
+}
+
+<h2>@Resources.PaymentHeader</h2>
+<br />
+
+<link href="~/Content/PSPControllerStyle.css" rel="stylesheet" type="text/css" />
+
+<div class="col-md-12">
+    <div class="col-md-8">
+        @using (Html.BeginForm("InformationPost", "PSP", new { OrderID = Session["OrderReturn"] }, FormMethod.Post))
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { id = "Naam", @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adres)
+                @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { id = "Adres", @class = "form-control" } })
+
+                @Html.LabelFor(model => model.Huisnummer)
+                @Html.EditorFor(model => model.Huisnummer, new { htmlAttributes = new { id = "Huisnummer", @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Postcode)
+                @Html.EditorFor(model => model.Postcode, new { htmlAttributes = new { id = "Postcode", @class = "form-control" } })
+
+                @Html.LabelFor(model => model.Woonplaats)
+                @Html.EditorFor(model => model.Woonplaats, new { htmlAttributes = new { id = "Woonplaats", @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { id = "Email", @class = "form-control" } })
+            </div>
+    
+            <div class="form-group">
+                <label>@Resources.PaymentType</label><br />
+                @Html.RadioButtonFor(x => x.Betaalwijze, "iDeal") iDeal <br />
+                @Html.RadioButtonFor(x => x.Betaalwijze, "Creditcard") Creditcard <br />
+                @Html.RadioButtonFor(x => x.Betaalwijze, "Reserveer") @Resources.PaymentReserve <br />
+            </div>
+
+            <div>
+                <input class="btn btn-lg btn-danger" style="float:left;" value="@Resources.ButtonCancel" onclick="location.href='@Url.Action("RemoveOrderOnExit", "PSP", new{ orderNr = Session["OrderReturn"]})'" />
+                <input class="btn btn-lg btn-success" type="submit" style="float:right;" value="@Resources.ButtonNext" />
+            </div>
+            
+        }
+
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+</div>

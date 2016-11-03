@@ -1,0 +1,81 @@
+﻿@model IVH7_Cinema.WebUI.Models.ShowsListViewModel
+@using IVH7_Cinema.WebUI.HtmlHelpers
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="content_links">
+    <h2>
+        Komende films voor vandaag
+    </h2>
+    <div class="movielist">
+        @foreach (var s in Model.Shows)
+        {
+            foreach (var g in s.Movie.Genres)
+            {
+                System.Diagnostics.Debug.WriteLine("IndexInfo - Genres = " + g.Name);
+            }
+            
+            if (s.ShowID == ViewBag.ShowID)
+            {
+                <div href="@Url.Action("IndexInfo", "Cinema", new { ShowID = @s.ShowID})" class="show show-selected">
+                    <p style="font-size: 18px; font-weight:bold;">@s.Movie.Title</p>
+                    <p style="font-size: 16px; font-weight:bold;">Starttijd: @s.DateTime.ToShortTimeString()</p>
+                </div>
+            }
+            else
+            {
+                <div href="@Url.Action("IndexInfo", "Cinema", new { ShowID = @s.ShowID})" class="show show-greyed">
+                    <p style="font-size: 18px; font-weight:bold;">@s.Movie.Title</p>
+                    <p style="font-size: 16px; font-weight:bold;">Starttijd: @s.DateTime.ToShortTimeString()</p>
+                </div>
+            }
+            <br />
+        }
+    </div>
+    <div class="listfooter">
+        <div class="btn-group-lg pull-left">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("IndexInfo", "Cinema", new { ShowID = ViewBag.ShowID, page = x }))
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="btn btn-lg btn-danger" onclick="location.href='@Url.Action("Index", "Cinema")';return false;">Annuleren</button>
+            <button type="button" class="btn btn-lg btn-success" onclick="location.href='@Url.Action("Order", "Cinema", new { ShowID = ViewBag.ShowID})';return false;">Verdergaan</button>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="content_rechts">
+    <h2>Informatie</h2>
+    <div class="infopart">
+        Genre:<br />
+        @ViewBag.Genre
+    </div><br />
+    <div class="infopart">
+        Tijdsduur:<br />
+        @ViewBag.Duration
+    </div><br />
+    <div class="infopart">
+        Taal:<br />
+        @ViewBag.Language
+    </div><br />
+    <div class="infopart">
+        3D-film:<br />
+        @if(@ViewBag.Threed == false){
+            @:Nee
+        } else {
+            @:Ja
+        }
+    </div>
+    @*<div class="infoparts">
+        Overige informatie:<br />
+        @if (ViewBag.Age.Equals("16 jaar"))
+        {
+            <p><img src="~/Content/Images/16 jaar.jpg" alt="afbeelding" /></p>
+        }
+    </div>*@
+</div>

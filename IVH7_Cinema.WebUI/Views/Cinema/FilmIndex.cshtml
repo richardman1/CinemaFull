@@ -1,0 +1,198 @@
+﻿@model IVH7_Cinema.WebUI.Models.ShowsListViewModel
+@using IVH7_Cinema.Domain.Entities;
+@using System.Globalization;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="content_links">
+    <h2>Eerstkomende Films Vandaag</h2>
+    <div class="movielist">
+        @foreach (var s in Model.Shows)
+        {
+            foreach (var g in s.Movie.Genres)
+            {
+                System.Diagnostics.Debug.WriteLine("Genres = " + g.Name);
+            }
+
+            foreach (var l in s.Movie.Languages)
+            {
+                System.Diagnostics.Debug.WriteLine("Languages = " + l.LanguageName);
+            }
+            if (s.AvailableSeats() == 0)
+            {
+                <a href="@Url.Action("Order", "Cinema", new { ShowID = @s.ShowID })" class="show show-full">
+                    <p style="font-size: 18px; font-weight:bold;">
+                        @s.Movie.Title &thinsp;
+                        @foreach (Rating r in s.Movie.Ratings)
+                        {
+                            if (r.Name.Equals("12 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/12 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("16 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/16 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("6 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/6 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("9 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/9 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Alle Leeftijden"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Alle Leeftijden.png" alt="afbeelding" />
+                            }
+                        }
+                        @foreach (Rating r in s.Movie.Ratings)
+                        {
+                            if (r.Name.Equals("Angst"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Angst.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Discriminatie"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Discriminatie.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Drugs -en Drankmisbruik"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Drugs -en Drankmisbruik.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Geweld"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Geweld.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Grof Taalgebruik"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Grof Taalgebruik.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Seks"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Seks.png" alt="afbeelding" />
+                            }
+                        }
+                        <span style="font-size: 18px; font-weight:bold; float: right;">
+                            @if (s.Is3D)
+                            {
+                                @: Overige informatie:
+                                <img style="height: 25px; width:30px;" src="~/Content/Images/3d.png" alt="afbeelding" />
+
+                            }
+
+                        </span>
+                    </p>
+                    <p style="font-size: 16px; font-weight:bold;">
+                        Starttijd: @s.DateTime.ToString("HH:mm", new CultureInfo("nl-NL"))
+                        <span style="font-size: 16px; font-weight:bold; float: right;">
+                            Filmduur: @s.Movie.Duration  minuten
+                        </span>
+                    </p>
+                    <p style="font-size: 14px; font-weight: bold;">
+                        Zaal: @s.Screen.ScreenID
+                        <span style="font-size: 14px; font-weight:bold; float: right;">
+                            Genre:
+                            @foreach (Genre g in s.Movie.Genres)
+                            {
+                                @g.Name <br />
+                            }
+                        </span>
+                    </p>
+                </a>
+            }
+  
+            else
+            {
+                <a href="@Url.Action("Order", "Cinema", new { ShowID = @s.ShowID })" class="show">
+                    <p style="font-size: 18px; font-weight:bold;">
+                        @s.Movie.Title (@s.Language.LanguageCode) &thinsp;
+                        @foreach (Rating r in s.Movie.Ratings)
+                        {
+                            if (r.Name.Equals("12 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/12 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("16 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/16 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("6 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/6 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("9 jaar"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/9 jaar.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Alle Leeftijden"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Alle Leeftijden.png" alt="afbeelding" />
+                            }
+                        }
+                        @foreach (Rating r in s.Movie.Ratings)
+                        {
+                            if (r.Name.Equals("Angst"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Angst.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Discriminatie"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Discriminatie.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Drugs -en Drankmisbruik"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Drugs -en Drankmisbruik.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Geweld"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Geweld.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Grof Taalgebruik"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Grof Taalgebruik.png" alt="afbeelding" />
+                            }
+                            if (r.Name.Equals("Seks"))
+                            {
+                                <img style="height: 25px; width:25px;" src="~/Content/Images/Seks.png" alt="afbeelding" />
+                            }
+                        }
+                        <span style="font-size: 18px; font-weight:bold; float: right;">
+                            @if (s.Is3D)
+                            {
+                                @: Overige informatie
+                                <img style="height:25px; width:30px;" src="~/Content/Images/3d.png" alt="afbeelding" />
+
+                            }
+
+                        </span>
+                    </p>
+                    <p style="font-size: 16px; font-weight:bold;">
+                        Starttijd: @s.DateTime.ToString("HH:mm", new CultureInfo("nl-NL"))
+                        <span style="font-size: 16px; font-weight:bold; float: right;">
+                            Filmduur: @s.Movie.Duration  minuten
+                        </span>
+                    </p>
+                    <p style="font-size: 14px; font-weight: bold;">
+                        Zaal: @s.Screen.ScreenID
+                        <span style="font-size: 14px; font-weight:bold; float: right;">
+                            Genre:
+                            @foreach (Genre g in s.Movie.Genres)
+                            {
+                                @g.Name <br />
+                            }
+                        </span>
+                    </p>
+            </a>           
+            }
+        }
+   </div>
+    <div class="listfooter">
+        <div class="btn-group-lg pull-right">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("FilmIndex", new { page = x }))
+        </div>
+        <button type="button" id="cancel" class="btn btn-lg btn-danger" style="float: left;" onclick="location.href='@Url.Action("Index", "Cinema")';return false;">Terug naar het hoofdscherm</button>
+    </div>
+</div>

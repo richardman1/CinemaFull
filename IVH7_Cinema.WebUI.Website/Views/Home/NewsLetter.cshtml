@@ -1,0 +1,77 @@
+﻿@model IVH7_Cinema.Domain.Entities.Subscriber
+
+@{
+    ViewBag.Title = "NewsLetter";
+}
+
+<h2>@Resources.NewsletterHeader</h2>
+
+<br />
+<p>@Resources.NewsletterInfo</p>
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">@Resources.Subscribe</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("AddSubscriber", "Home", FormMethod.Post, new { @Id = "subscribe_form" }))
+        {
+            if (Request.Form.AllKeys.Contains("subscribe"))
+            {
+                @Html.ValidationSummary()
+            }
+            if (ViewBag.NewsSubscribe == 1)
+            {
+                <p style="font-weight:bold; color:green;">@Resources.EmailSubscribed</p>
+            }
+            if (ViewBag.NewsSubscribe == 2)
+            {
+                <p style="font-weight:bold; color:red;">@Resources.EmailExists</p>
+            }
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="text-left">
+                <input type="submit" value=@Resources.Subscribe class="btn btn-success" name="subscribe" />
+            </div>
+        }
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">@Resources.Unsubscribe</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("DeleteSubscriber", "Home", FormMethod.Post, new { @Id = "unsubscribe_form" }))
+        {
+            if (ViewBag.NewsError == 1)
+            {
+                <p style="font-weight:bold; color:green;">@Resources.EmailRemoved</p>
+            }
+            if (ViewBag.NewsError == 2)
+            {
+                <p style="font-weight:bold; color:red;">@Resources.EmailNotFound</p>
+            }
+            if (ViewBag.NewsError == 3)
+            {
+                <p style="font-weight:bold; color:red;">@Resources.EmailRequired</p>
+            }
+            if (ViewBag.NewsError == 4)
+            {
+                <p style="font-weight:bold; color:red;">@Resources.EmailInvalid</p>
+            }
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="Email2" id="Email2" class="form-control"/>
+            </div>
+
+            <div class="text-left">
+                <input type="submit" value=@Resources.Unsubscribe class="btn btn-danger" name="unsubscribe" />
+            </div>
+        }
+    </div>
+</div>

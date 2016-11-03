@@ -1,0 +1,75 @@
+﻿@model IVH7_Cinema.Domain.Entities.Order
+
+@{
+    ViewBag.Title = "PinView"; 
+    @Session["OrderID"]
+}
+<link href="~/Content/Pin-Theme.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+    function fillField(nr) {
+        var pin = document.getElementById("InputPin");
+        var pinfull = pin.value;
+
+        if (pin.value.length < 4) {
+            pin.value = pin.value + nr;
+        }
+    }
+
+    function empty() {
+        var pin = document.getElementById("InputPin");
+        //alert("clear");
+        pin.value = "";
+    }
+
+    function finish() {
+        var pin = document.getElementById("InputPin");
+
+        if (pin.value == "4562") {
+            //window.location.href = "pinComplete";
+            location.href = '@Html.Raw(Url.Action("pinComplete", "Pin", new { OrderID = @Model.OrderID, Amount3DBrilTariffs = @ViewBag.Amount3DBrilTariffs, AmountPopcornArrangementTariffs = @ViewBag.AmountPopcornArrangementTariffs }))';
+        } else {
+            pin.value = "";
+            alert("De pincode is fout");
+        }
+    }
+
+</script>
+
+<div id="getal">
+    <h1>De totaalprijs is &euro;@Model.Totaalprijs.ToString("n2")</h1>
+    <h1>Toets uw pincode om te betalen:</h1>
+</div>
+
+<div id="calculator">
+    <div class="top">
+        <div class="screen">
+            @*<input type="text" name="pin" id="InputPin" readonly />*@
+            <input type="password" name="pin" id="InputPin" readonly />
+        </div>
+    </div>
+
+    <div class="keys">
+        <button type="button" class="numbers" onclick="fillField(7)">7</button>
+        <button type="button" class="numbers" onclick="fillField(8)">8</button>
+        <button type="button" class="numbers" onclick="fillField(9)">9</button>
+
+        <button type="button" class="numbers" onclick="fillField(4)">4</button>
+        <button type="button" class="numbers" onclick="fillField(5)">5</button>
+        <button type="button" class="numbers" onclick="fillField(6)">6</button>
+
+        <button type="button" class="numbers" onclick="fillField(1)">1</button>
+        <button type="button" class="numbers" onclick="fillField(2)">2</button>
+        <button type="button" class="numbers" onclick="fillField(3)">3</button>
+
+
+        <button type="button" class="cancel" onclick="empty()">X</button>
+        <button type="button" class="numbers" onclick="fillField(0)">0</button>
+        <button type="button" class="ok" onclick="finish()">OK</button>
+    </div>
+</div>
+
+<div class="listfooter">
+    <button type="button" id="cancel" class="btn btn-lg btn-danger" style="float: right;" onclick="location.href='@Url.Action("DeleteOrder", "Cinema", new { OrderID = @Model.OrderID })';return false;">Bestelling annuleren</button>
+</div>

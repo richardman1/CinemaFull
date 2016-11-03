@@ -1,0 +1,11 @@
+﻿@model IVH7_Cinema.Domain.Entities.Movie
+@using IVH7_Cinema.Domain.Entities
+
+<a href="@Url.Action("Movie", "Home", new { MovieID = Model.MovieID })">
+    <div style="padding-right: 49px; padding-left: 49px; padding-top: 40px; width: 280px; font-size: 16px; text-align:center; display: inline-block;">
+        <img src="@Url.Content("~/Content/MovieCovers/")@Model.ImageURL" alt="@Model.Title" style="width:179px;height:254px"><br />
+        <b style="display: block; height: 20px !important; overflow: hidden; width: 179px;">
+        @Model.Title
+</b>
+    </div>
+</a>

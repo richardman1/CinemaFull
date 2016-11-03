@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5E16C0F-7402-4F98-9552-E376432ACA3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IVH7_Cinema.Domain</RootNamespace>
+    <AssemblyName>IVH7_Cinema.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.5\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\ICinemaRepository.cs" />
+    <Compile Include="Abstract\IMailer.cs" />
+    <Compile Include="Abstract\IPrinter.cs" />
+    <Compile Include="Concrete\EFCinemaRepository.cs" />
+    <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Entities\Cinema.cs" />
+    <Compile Include="Entities\Genre.cs" />
+    <Compile Include="Entities\Language.cs" />
+    <Compile Include="Entities\MailerEN.cs" />
+    <Compile Include="Entities\Mailer.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\PDFPrinterEN.cs" />
+    <Compile Include="Entities\PDFPrinter.cs" />
+    <Compile Include="Entities\Rating.cs" />
+    <Compile Include="Entities\Screen.cs" />
+    <Compile Include="Entities\Movie.cs" />
+    <Compile Include="Entities\Subscriber.cs" />
+    <Compile Include="Entities\Tariff.cs" />
+    <Compile Include="Entities\Seat.cs" />
+    <Compile Include="Entities\Show.cs" />
+    <Compile Include="Entities\Ticket.cs" />
+    <Compile Include="Migrations\201503081756258_InitialCreate.cs" />
+    <Compile Include="Migrations\201503081756258_InitialCreate.Designer.cs">
+      <DependentUpon>201503081756258_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503091030205_AddOrder.cs" />
+    <Compile Include="Migrations\201503091030205_AddOrder.Designer.cs">
+      <DependentUpon>201503091030205_AddOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503091047528_MovieClassChanges.cs" />
+    <Compile Include="Migrations\201503091047528_MovieClassChanges.Designer.cs">
+      <DependentUpon>201503091047528_MovieClassChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503091418467_OrderChange.cs" />
+    <Compile Include="Migrations\201503091418467_OrderChange.Designer.cs">
+      <DependentUpon>201503091418467_OrderChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503101439437_moviePictureURLUpdate.cs" />
+    <Compile Include="Migrations\201503101439437_moviePictureURLUpdate.Designer.cs">
+      <DependentUpon>201503101439437_moviePictureURLUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503111548001_AddReleaseDate.cs" />
+    <Compile Include="Migrations\201503111548001_AddReleaseDate.Designer.cs">
+      <DependentUpon>201503111548001_AddReleaseDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503120825385_AddBanner.cs" />
+    <Compile Include="Migrations\201503120825385_AddBanner.Designer.cs">
+      <DependentUpon>201503120825385_AddBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503171234302_SubscriberUpdate.cs" />
+    <Compile Include="Migrations\201503171234302_SubscriberUpdate.Designer.cs">
+      <DependentUpon>201503171234302_SubscriberUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503181354365_TariffEnglish.cs" />
+    <Compile Include="Migrations\201503181354365_TariffEnglish.Designer.cs">
+      <DependentUpon>201503181354365_TariffEnglish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503181408521_TariffEnglish2.cs" />
+    <Compile Include="Migrations\201503181408521_TariffEnglish2.Designer.cs">
+      <DependentUpon>201503181408521_TariffEnglish2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503181413502_TariffEnglish3.cs" />
+    <Compile Include="Migrations\201503181413502_TariffEnglish3.Designer.cs">
+      <DependentUpon>201503181413502_TariffEnglish3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503190040124_MovieDescriptions.cs" />
+    <Compile Include="Migrations\201503190040124_MovieDescriptions.Designer.cs">
+      <DependentUpon>201503190040124_MovieDescriptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.A1.cslib\com.A1.cslib.csproj">
+      <Project>{d5e1192e-d1c1-4650-91be-8521d9bbfba1}</Project>
+      <Name>com.A1.cslib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IVH7_Cinema.Resources\IVH7_Cinema.Resources.csproj">
+      <Project>{6012cb82-50b5-4e3f-89bf-8537ec6efe4c}</Project>
+      <Name>IVH7_Cinema.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201503081756258_InitialCreate.resx">
+      <DependentUpon>201503081756258_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503091030205_AddOrder.resx">
+      <DependentUpon>201503091030205_AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503091047528_MovieClassChanges.resx">
+      <DependentUpon>201503091047528_MovieClassChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503091418467_OrderChange.resx">
+      <DependentUpon>201503091418467_OrderChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503101439437_moviePictureURLUpdate.resx">
+      <DependentUpon>201503101439437_moviePictureURLUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503111548001_AddReleaseDate.resx">
+      <DependentUpon>201503111548001_AddReleaseDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503120825385_AddBanner.resx">
+      <DependentUpon>201503120825385_AddBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503171234302_SubscriberUpdate.resx">
+      <DependentUpon>201503171234302_SubscriberUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503181354365_TariffEnglish.resx">
+      <DependentUpon>201503181354365_TariffEnglish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503181408521_TariffEnglish2.resx">
+      <DependentUpon>201503181408521_TariffEnglish2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503181413502_TariffEnglish3.resx">
+      <DependentUpon>201503181413502_TariffEnglish3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503190040124_MovieDescriptions.resx">
+      <DependentUpon>201503190040124_MovieDescriptions.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
